@@ -6,7 +6,9 @@ import Calendar from "../../assets/icons/Calendar.astro";
 import Text from "../elements/Text.astro";
 import Heading from "../elements/Heading.astro";
 
-const { title, timeline, description } = Astro.props;
+import Link from "../elements/Link.astro";
+
+const { title, timeline, description, certificateUrl, certificateLabel } = Astro.props;
 
 ---
 
@@ -20,8 +22,13 @@ const { title, timeline, description } = Astro.props;
             </div>
         </div>
     </div>
-    <div class="p-16">
+    <div class="p-16 flex flex-col gap-16">
         <Text variant={'normal'} class="text-base-400">{description}</Text>
+        {
+            certificateUrl && (
+                <Link variant={'inline'} href={certificateUrl} text={certificateLabel || "View Certificate"} newWindow />
+            )
+        }
     </div>
 </div>
 

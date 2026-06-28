@@ -1,19 +1,60 @@
 - id: 1
-  title: Tools
+  title: Languages
   items:
-    - Go
     - Python
-    - TypeScript
     - SQL
-    - AWS
-    - Docker
-    - PostgreSQL
 - id: 2
-  title: Skills
+  title: "ML / Deep Learning"
   items:
-    - Distributed Systems
-    - REST/gRPC APIs
-    - Scalability
-    - Unit/integration/E2E testing
-    - Ethereum, EVM, smart contracts
-    - Code reviews, documentation
+    - Scikit-learn
+    - TensorFlow
+    - XGBoost
+    - DistilBERT
+    - NLP
+    - CNNs
+    - ANN
+- id: 3
+  title: "Data Science"
+  items:
+    - Pandas
+    - NumPy
+    - Matplotlib
+    - Seaborn
+    - Probability & Statistics
+    - Hypothesis Testing
+- id: 4
+  title: "Visualization"
+  items:
+    - Power BI
+    - Excel
+    - Matplotlib
+    - Seaborn
+- id: 5
+  title: "Frameworks"
+  items:
+    - FastAPI
+    - Streamlit
+    - LangChain
+    - ChromaDB
+- id: 6
+  title: "LLMs & AI"
+  items:
+    - Mistral 7B
+    - Ollama
+    - Prompt Engineering
+    - RAG Pipelines
+- id: 7
+  title: "Databases"
+  items:
+    - SQLite
+    - Google Sheets API
+- id: 8
+  title: "Tools"
+  items:
+    - Git
+    - GitHub
+    - Render
+    - Docker
+    - Playwright
+    - BeautifulSoup
+    - openpyxl

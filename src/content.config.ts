@@ -9,35 +9,25 @@ const projects = defineCollection({
         title: z.string().max(50),
         tools: z.preprocess(
             (val) => (Array.isArray(val) ? val : [val]),
-            z.array(z.enum(["TypeScript", "LIVE", "HTML", "JavaScript", "React Native", "Backend API", "Node.js", "Docker", "Tailwind"]))), // change categories here
+            z.array(z.string())),
         year: z.string().max(4),
         liveSite: z.url().optional(),
         github: z.url().optional(),
         description: z.string().max(350),
         isFeatured: z.boolean(),
-        isDraft: z.boolean()
+        isDraft: z.boolean(),
+        inProgress: z.boolean().optional().default(false)
     })
 });
-
-const blog = defineCollection({
-    loader: glob({pattern: "src/content/blog/**/*.md"}),
-    schema: z.object({
-        id: z.number(),
-        slug: z.string().max(50),
-        title: z.string().max(50),
-        publishedDate: z.date(),
-        category: z.enum(["systems", "ai", "productivity"]), // change and add blog categories here
-        readingTime: z.number().optional(),
-        isDraft: z.boolean()
-    })
-})
 
 const experience = defineCollection({
     loader: file("src/content/resume/experience.yaml"),
     schema: z.object({
         title: z.string().max(70),
         timeline: z.string().max(15),
-        description: z.string().max(500)
+        description: z.string().max(500),
+        certificateUrl: z.string().url().optional(),
+        certificateLabel: z.string().max(30).optional()
     })
 })
 
@@ -59,4 +49,4 @@ const skillsAndTools = defineCollection({
 })
 
 
-export const collections = { projects, blog, experience, education, skillsAndTools };
+export const collections = { projects, experience, education, skillsAndTools };

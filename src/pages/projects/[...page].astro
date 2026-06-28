@@ -12,7 +12,8 @@ import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 export const getStaticPaths = (async ({paginate}) => {
     const projects = await getCollection("projects", ({data}) => !data.isDraft)
-    return paginate(projects, {pageSize: 6});
+    const sorted = projects.sort((a, b) => a.data.id - b.data.id)
+    return paginate(sorted, {pageSize: 6});
 }) satisfies GetStaticPaths;
 
 // props
@@ -21,7 +22,7 @@ const { page } = Astro.props;
 
 <Layout
     title="All Projects"
-    description="All Projects for software engineer Andy Decker."
+    description="Navjot Jangra's portfolio projects."
     ogImage="" 
 >
     <Section
@@ -37,6 +38,7 @@ const { page } = Astro.props;
                     website={project.data.liveSite}
                     description={project.data.description}
                     tools={project.data.tools}
+                    inProgress={project.data.inProgress}
             />
         ))
     }
